@@ -8,7 +8,7 @@ require_once ('functions.php');
 // Get path for parent of currentfile:
 define("PRIVATE_PATH", dirname(__FILE__));
 //results is a Hard-Drive PHYSICAL path:
-//so, echo PRIVATE_PATH --> "/Users/reni/Sites/globe_bank/private"
+//so, echo PRIVATE_PATH --> "/Users/MyUserID/Sites/globe_bank/private"
 
 // Get path for  parent of the parent of currentfile:
 // Like below, or:  define("PROJECT_PATH", dirname(PRIVATE_PATH));
@@ -30,7 +30,7 @@ $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
 $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
 define("WWW_ROOT", $doc_root); 
 // so,echo '<p>' .$public_end . '<p>'; --> 24
-// so,echo $doc_root  and WWW_ROOT ---> '/~reni/globe_bank/public'
+// so,echo $doc_root  and WWW_ROOT ---> '/~MyUserID/globe_bank/public'
 
 
 ?>
