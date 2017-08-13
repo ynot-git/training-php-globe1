@@ -15,7 +15,7 @@ if($test == '404') {
 	redir_to( url_for('/staff/index.php') ) ;
 	 
 }
-
+ 
 ?>
 
 <?php $page_title = 'Create Subject'; ?>
