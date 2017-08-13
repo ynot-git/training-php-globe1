@@ -1,0 +1,5 @@
+# Ignore these files for GIT checkins
+.DS_Stor
+.buildpath
+.project
+.settings
