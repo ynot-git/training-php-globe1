@@ -1,18 +1,33 @@
 <?php
 require_once('../../../private/initialize.php');
 
-$test = isset($_GET['test']) ? $_GET['test'] : 'x';
-//$test = $_GET['test'] ?? '';
+if (!isset($_GET['id']) ){ 
+	redir_to( url_for('/staff/subjects/index.php') );
+} else {
+	$id = $_GET['id'];
+	//echo $id;
+} 
+//Initialize remaining values (in case not a post request)
+$menu_name ='';
+$position ='';
+$visible ='';
 
-if($test == '404') {
-	error_404();
+
+if  (is_post_request()) {
+	// Handle/Retrieve the form values sent by new.php (the POST variables)
+	$menu_name = isset($_POST['menu_name']) ? $_POST['menu_name']  : '';
+	$position = isset($_POST['position']) ? $_POST['position']: '';
+	$visible =isset($_POST['visible']) ?  $_POST['visible'] : '';
 	
-} elseif($test == '500') {
-	error_500();
+	//Do "processing" on the received variables
+	echo "Form parameters<br />";
+	echo "Menu name: " . $menu_name . "<br />";
+	echo "Position: " . $position . "<br />";
+	echo "Visible: " . $visible . "<br />";
 	
-} elseif ($test=='redirect') {
-	redir_to( url_for('/staff/index.php') ) ;
-	
+} else {
+	//redir_to( url_for('/staff/subjects/index.php') );
+	// Instead, if not a 'post' (ie, is a Link Call) then proceed with form display for "Edit"
 }
 
 ?>
@@ -27,10 +42,10 @@ if($test == '404') {
   <div class="subject edit">
     <h1>Edit Subject</h1>
 
-    <form action="" method="post">
+    <form action="<?php echo url_for('/staff/subjects/edit.php') . "?id=" . h( u( $id )) ;   ?>   " method="post">
       <dl>
         <dt>Menu Name</dt>
-        <dd><input type="text" name="menu_name" value="" /></dd>
+        <dd><input type="text" name="menu_name" value="<?php echo $menu_name; ?>" /></dd>
       </dl>
       <dl>
         <dt>Position</dt>

@@ -1,6 +1,7 @@
 <?php
 require_once('../../../private/initialize.php'); 
 
+// This code is 'deprecated', since its incorporated directly into "edit.php" as a Single-Page form-submission
 if  (is_post_request()) {
 	// Handle/Retrieve the form values sent by new.php (the POST variables)
 	$menu_name = isset($_POST['menu_name']) ? $_POST['menu_name']  : '';

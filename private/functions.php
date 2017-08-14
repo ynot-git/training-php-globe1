@@ -64,7 +64,7 @@ function redir_to($location) {
 	header("Location: " .  $location );
 	exit();
 }
-// MacBook:~ rMyUserID$ curl --head http://localhost/~MyUserID/globe_bank/public/staff/subjects/new.php?test=redirect
+   // MacBook:~ MyUserID$ curl --head http://localhost/~MyUserID/globe_bank/public/staff/subjects/new.php?test=redirect
 	// HTTP/1.1 302 Found
 	// Date: Sun, 13 Aug 2017 02:19:11 GMT
 	// Server: Apache/2.4.25 (Unix) PHP/5.6.30
@@ -73,7 +73,19 @@ function redir_to($location) {
 	// Content-Type: text/html; charset=UTF-8
 	 
 
+//FUNCTION is_post_request
+// check if the call to the file is POST, via submit button
+// (or GET, via a link/url)
+function is_post_request() {
+	return $_SERVER['REQUEST_METHOD'] == 'POST';
+}
 
+//FUNCTION is_get_request
+// check if the call to the file is POST, via submit button
+// (or GET, via a link/url)
+function is_get_request() {
+	return $_SERVER['REQUEST_METHOD'] == 'GET';
+} 
 
 ?>
 
